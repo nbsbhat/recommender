@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <meta charset="UTF-8">
+        <title>Personal Movie Recommendations</title>
+    </head>
+    <!--Navigation bar-->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                      <a class="navbar-brand" href="#">Recommendations</a>
+            </div>
+        </div>
+    </nav>
+
+    <body>
+    <!--Render Movie list as card columns here -->
+    <p>  recommended_count: {{recommended_count}}
+    <div class="container">
+        <div class="card-columns">
+            {% for movie in movie_list %}
+            <div class="col-auto mb-4">
+                <div class="card">
+                    <img class="card-img-left"
+                    src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
+                    width="160" height="240">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">{{movie.original_title}}</h5>
+                        <p class="card-text">{{movie.overview}}</p>
+                        <p class="card-text">Genres: <b>{{movie.genres}}</b></p>
+                        <p class="card-text">Rating: <b>{{movie.vote_average}}</b></p>
+                        <p class="card-text">{{movie.original_language}}, {{movie.release_date}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    </body>
+
+</html>
